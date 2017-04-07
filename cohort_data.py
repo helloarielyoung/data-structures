@@ -32,7 +32,6 @@ def unique_houses(filename):
 
     return houses
 
-unique_houses("cohort_data.txt")
 
 def sort_by_cohort(filename):
     """TODO: Return a list of all cohort lists, including ghosts but not instructors.
@@ -57,6 +56,25 @@ def sort_by_cohort(filename):
 
     # Code goes here
 
+    data = open(filename)
+ 
+    for line in data:
+        person = line.split("|")
+        name = person[0] + " " + person[1] #first name + last name
+        cohort = person[4]
+
+        if cohort == "Winter 2016":
+            winter_16.append(name)
+        elif cohort == "Spring 2016":
+            spring_16.append(name)
+        elif cohort == "Summer 2016":
+            summer_16.append(name)
+        elif cohort == "Fall 2015":
+            fall_15.append(name)
+        elif cohort == "G":
+            ghosts.append(name)
+
+    all_students = [winter_16, spring_16, summer_16, fall_15, ghosts]
     return all_students
 
 
